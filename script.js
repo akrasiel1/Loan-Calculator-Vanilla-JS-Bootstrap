@@ -2,10 +2,22 @@
 let loanForm = document.querySelector("#loan-form");
 
 // Adding event listener
-loanForm.addEventListener("submit", calculateResults);
+loanForm.addEventListener("submit", function(e) {
+    
+    // Hide results
+    document.querySelector("#results").style.display = "none";
+    // Show loading GIF
+    document.querySelector("#loading").style.display = "block";
+
+    // Set timeout 
+    setTimeout(calculateResults, 1500);
+
+    // Preventing default behaviour
+    e.preventDefault();
+});
 
 // calculteResults() function
-function calculateResults(e) {
+function calculateResults() {
 
     // Defining UI variables
     let amount, interest, years, monthlyPayment, totalPayment, totalInterest;
@@ -28,18 +40,25 @@ function calculateResults(e) {
         monthlyPayment.value = monthly.toFixed(2);
         totalPayment.value = (monthly * calculatedPayments).toFixed(2);
         totalInterest.value = ((monthly * calculatedPayments) - principal).toFixed(2);
+
+        // Show results
+        document.querySelector("#results").style.display = "block";
+        // Hide loading GIF
+        document.querySelector("#loading").style.display = "none";
     }
     else {
         showError("Please fill in your form!")
     }
 
-    
-    // Preventing default behaviour
-    e.preventDefault();
 }
 
 // Show error
 function showError(error) {
+    // Hide results & loading GIF if fields are empty
+    document.querySelector("#results").style.display = "none";
+    document.querySelector("#loading").style.display = "none"
+
+
     // Creating new div showing error message
     let errorMsg = document.createElement("div");
     

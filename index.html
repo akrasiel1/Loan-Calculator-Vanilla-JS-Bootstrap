@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>Loan Calculator</title>
+
+    <style>
+        #loading, #results {
+            display: none;
+        }
+    </style>
   </head>
   <body class="bg-dark">
       <div class="container">
@@ -40,11 +46,10 @@
                             <input type="submit" value="Calculate" class="btn btn-dark btn-block text-white">
                         </div>
                       </form>
-                      <!-- Loader goes here 
+                      <!-- Loader goes here -->
                       <div id="loading">
                           <img src="./img/Eclipse-1s-200px.gif" alt="Loader GIF">
-                      </div>-->
-                      <!-- Results -->
+                      </div>
                       <div id="results" class="pt-4">
                       <h2>Results</h2>
                       <div class="form-group">
@@ -63,7 +68,6 @@
                             <input type="number" class="form-control" id="total-payment" disabled>
                         </div>
                     </div>
-                    </div>
                     <div class="form-group">
                         <div class="input-group">
                           <div class="input-group-prepend">
@@ -71,6 +75,7 @@
                             </div>
                             <input type="number" class="form-control" id="total-interest" disabled>
                         </div>
+                    </div>
                     </div>
                     </div>
                   </div>
